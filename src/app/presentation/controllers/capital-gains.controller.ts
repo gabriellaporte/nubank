@@ -1,11 +1,17 @@
+import { Operation } from '../../domain/value-objects/operation';
+import { OperationBatch } from '../../domain/value-objects/operation-batch';
+import { CalculateTaxesForOperationsUseCase } from '../../application/usecases/calculate-taxes-for-operations.use-case';
+
 export class CapitalGainsController {
-  async calculate(data: DataType[][]): Promise<void> {
-    console.log(data);
+  constructor(
+    private readonly calculateTaxesUseCase: CalculateTaxesForOperationsUseCase
+  ) {}
+
+  calculate(data: Operation[][]): void {
+    const response = data.map(async (batch) =>
+      this.calculateTaxesUseCase.execute(new OperationBatch(batch))
+    );
+
+    console.log(response);
   }
 }
-
-export type DataType = {
-  operation: 'buy' | 'sell';
-  'unit-cost': number;
-  quantity: number;
-};

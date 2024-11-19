@@ -12,10 +12,6 @@ export class AveragePrice {
     this.value = totalCost / totalQuantity;
   }
 
-  calculateProfitOrLoss(unitCost: number, quantity: number): number {
-    return (unitCost - this.value) * quantity;
-  }
-
   getValue(): number {
     return this.value;
   }

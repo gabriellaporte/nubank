@@ -10,10 +10,6 @@ export class Portfolio {
     this.averagePrice.update(unitCost, quantity, this.totalQuantity);
   }
 
-  calculateProfitOrLoss(unitCost: number, quantity: number): number {
-    return this.averagePrice.calculateProfitOrLoss(unitCost, quantity);
-  }
-
   deductLosses(profit: number): number {
     return this.loss.deduct(profit);
   }
@@ -24,13 +20,5 @@ export class Portfolio {
 
   getAveragePrice(): number {
     return this.averagePrice.getValue();
-  }
-
-  getTotalQuantity(): number {
-    return this.totalQuantity;
-  }
-
-  getLosses(): number {
-    return this.loss.getValue();
   }
 }

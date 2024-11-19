@@ -22,4 +22,8 @@ export class Operation {
       throw new Error('Quantity must be greater than zero');
     }
   }
+
+  public calculateNetProceeds(averagePrice: number): number {
+    return (this.unitCost - averagePrice) * this.quantity;
+  }
 }

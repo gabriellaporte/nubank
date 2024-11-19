@@ -2,24 +2,32 @@ import { Operation } from '../../domain/value-objects/operation';
 import { Portfolio } from '../../domain/value-objects/portfolio';
 import { OperationHandler } from './';
 import { TaxCalculator } from '../../domain/domain-services/tax-calculator';
+import { Tax } from '../../domain/handlers/operation.handler.interface';
 
 export class SellOperationHandler implements OperationHandler {
   canHandle(operation: Operation): boolean {
     return operation.type === 'sell';
   }
 
-  handle(operation: Operation, portfolio: Portfolio): { tax: number } {
-    const profitOrLoss = portfolio.calculateProfitOrLoss(
-      operation.unitCost,
-      operation.quantity
+  handle(operation: Operation, portfolio: Portfolio): Tax {
+    const netProceeds = operation.calculateNetProceeds(
+      portfolio.getAveragePrice()
     );
 
-    if (profitOrLoss <= 0) {
-      portfolio.accumulateLoss(Math.abs(profitOrLoss));
+    if (netProceeds <= 0) {
+      portfolio.accumulateLoss(Math.abs(netProceeds));
       return { tax: 0.0 };
     }
 
-    const taxableProfit = portfolio.deductLosses(profitOrLoss);
+    return this.calculateTax(portfolio, netProceeds, operation);
+  }
+
+  private calculateTax(
+    portfolio: Portfolio,
+    netProceeds: number,
+    operation: Operation
+  ) {
+    const taxableProfit = portfolio.deductLosses(netProceeds);
     const totalValue = operation.unitCost * operation.quantity;
     const tax = TaxCalculator.calculateTax(taxableProfit, totalValue);
 

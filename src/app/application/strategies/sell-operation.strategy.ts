@@ -1,7 +1,7 @@
 import { Operation, Portfolio } from '../../domain/value-objects/';
 import { OperationStrategy } from './';
 import { TaxCalculator } from '../../domain/domain-services/tax-calculator';
-import { Tax } from '../../domain/handlers/operation.strategy.interface';
+import { Tax } from '@/app/domain/strategies/operation.strategy.interface';
 
 export class SellOperationStrategy implements OperationStrategy {
   handle(operation: Operation, portfolio: Portfolio): Tax {

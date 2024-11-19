@@ -15,7 +15,7 @@ export class OperationStrategyFactory {
         return new SellOperationStrategy();
       default:
         throw new Error(
-          `No handler found for operation type: ${operation.type}`
+          `No strategy found for operation type: ${operation.type}`
         );
     }
   }

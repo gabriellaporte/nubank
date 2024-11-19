@@ -1,6 +1,6 @@
 import { Portfolio } from '../../domain/value-objects/portfolio';
-import { OperationStrategyFactory } from '../handlers';
-import { Tax } from '../../domain/handlers/operation.strategy.interface';
+import { OperationStrategyFactory } from '../strategies';
+import { Tax } from '@/app/domain/strategies/operation.strategy.interface';
 import { Operation } from '../../domain/value-objects';
 
 export class CalculateTaxesUseCase {

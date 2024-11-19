@@ -18,8 +18,17 @@ export class Portfolio {
     }
   }
 
-  deductLosses(profit: number): number {
-    return this.loss.deduct(profit);
+  calculateTaxableProfit(profit: number): number {
+    if (profit <= 0) {
+      return 0;
+    }
+
+    const deductible = this.loss.calculateDeductibleAmount(profit);
+    return profit - deductible;
+  }
+
+  deductLosses(profit: number): void {
+    this.loss.reduce(profit);
   }
 
   accumulateLoss(loss: number): void {
@@ -28,5 +37,13 @@ export class Portfolio {
 
   getAveragePrice(): number {
     return this.averagePrice.getValue();
+  }
+
+  getLosses(): number {
+    return this.loss.getValue();
+  }
+
+  getTotalQuantity(): number {
+    return this.totalQuantity;
   }
 }

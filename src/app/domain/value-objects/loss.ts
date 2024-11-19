@@ -5,10 +5,13 @@ export class Loss {
     this.value += loss;
   }
 
-  deduct(profit: number): number {
-    const taxableProfit = Math.max(0, profit - this.value);
-    this.value = Math.max(0, this.value - profit);
-    return taxableProfit;
+  reduce(amount: number): void {
+    const deductibleAmount = this.calculateDeductibleAmount(amount);
+    this.value -= deductibleAmount;
+  }
+
+  calculateDeductibleAmount(amount: number): number {
+    return Math.min(this.value, amount);
   }
 
   getValue(): number {

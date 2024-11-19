@@ -32,7 +32,8 @@ export class SellOperationStrategy implements OperationStrategy {
     netProceeds: number,
     operation: Operation
   ): Tax {
-    const taxableProfit = portfolio.deductLosses(netProceeds);
+    const taxableProfit = portfolio.calculateTaxableProfit(netProceeds);
+    portfolio.deductLosses(netProceeds);
     const totalValue = operation.unitCost * operation.quantity;
     const tax = TaxCalculator.calculateTax(taxableProfit, totalValue);
 

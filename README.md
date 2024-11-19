@@ -164,6 +164,9 @@ técnicos que podem te interessar:
   leva um tempinho, né?
 - **Desenvolvimento**: Usei ferramentas que garantiam a qualidade do código como ESLint e Prettier, aumentando minha
   produtividade.
+- **Retorno com casas decimais**: O JavaScript, ao usar a função `JSON.stringify` para devolver os impostos calculados
+  remove automaticamente as casas decimais dos floats com .00 no final. Por isso ele vai ficar como inteiro nesses
+  casos.
 
 <br />
 

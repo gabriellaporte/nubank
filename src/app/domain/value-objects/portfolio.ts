@@ -1,35 +1,36 @@
+import { AveragePrice, Loss } from './';
+
 export class Portfolio {
-  private averagePrice: number = 0;
+  private readonly averagePrice: AveragePrice = new AveragePrice();
+  private readonly loss: Loss = new Loss();
   private totalQuantity: number = 0;
-  private losses: number = 0;
 
   updateAveragePrice(unitCost: number, quantity: number): void {
-    if (this.totalQuantity === 0) {
-      this.averagePrice = unitCost;
-      return;
-    }
-
-    const totalCost =
-      this.averagePrice * this.totalQuantity + unitCost * quantity;
     this.totalQuantity += quantity;
-    this.averagePrice = totalCost / this.totalQuantity;
+    this.averagePrice.update(unitCost, quantity, this.totalQuantity);
   }
 
   calculateProfitOrLoss(unitCost: number, quantity: number): number {
-    return (unitCost - this.averagePrice) * quantity;
+    return this.averagePrice.calculateProfitOrLoss(unitCost, quantity);
   }
 
   deductLosses(profit: number): number {
-    const taxableProfit = Math.max(0, profit - this.losses);
-    this.losses = Math.max(0, this.losses - profit);
-    return taxableProfit;
+    return this.loss.deduct(profit);
   }
 
   accumulateLoss(loss: number): void {
-    this.losses += loss;
+    this.loss.accumulate(loss);
+  }
+
+  getAveragePrice(): number {
+    return this.averagePrice.getValue();
   }
 
   getTotalQuantity(): number {
     return this.totalQuantity;
+  }
+
+  getLosses(): number {
+    return this.loss.getValue();
   }
 }

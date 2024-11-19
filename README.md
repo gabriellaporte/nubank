@@ -46,7 +46,8 @@ arquitetural [_Clean Architecture_](https://blog.cleancoder.com/uncle-bob/2012/0
 e [_Domain-Driven Design_](https://martinfowler.com/bliki/DomainDrivenDesign.html). Por serem conhecidos popularmente,
 não
 entrarei em detalhes sobre eles, mas a ideia é que o
-código seja o mais desacoplado possível, facilitando a manutenção e a evolução do _software_. Por exemplo, o sistema
+código seja o mais desacoplado possível, facilitando a manutenção e a escalabilidade do _software_. Por exemplo, o
+sistema
 hoje
 roda em _CLI_, mas
 facilmente posso implementar uma _API Rest_ ou algum outro _driver actor_, como propõe

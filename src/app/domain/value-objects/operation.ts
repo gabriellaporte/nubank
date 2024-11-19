@@ -5,7 +5,9 @@ export class Operation {
     public readonly type: string,
     public readonly unitCost: number,
     public readonly quantity: number
-  ) {}
+  ) {
+    this.validate();
+  }
 
   static fromJSON(json: any): Operation {
     return new Operation(json.operation, json['unit-cost'], json.quantity);

@@ -4,6 +4,17 @@ import { TaxCalculator } from '../../domain/domain-services/tax-calculator';
 import { Tax } from '@/app/domain/strategies/operation.strategy.interface';
 
 export class SellOperationStrategy implements OperationStrategy {
+  /**
+   * Registers a sell operation in the portfolio and calculates the tax to be paid
+   * based on the operating profit. If the operation results in a loss, the loss
+   * is accumulated in the portfolio which stores the total losses for all operations
+   * being currently handled in the input.
+   *
+   *
+   * @param operation     The operation to be handled
+   * @param portfolio     The portfolio to be updated
+   * @returns             The tax to be paid. If the operation results in a loss, the tax is 0.
+   */
   handle(operation: Operation, portfolio: Portfolio): Tax {
     const netProceeds = this.processNetProceeds(operation, portfolio);
 
@@ -27,6 +38,15 @@ export class SellOperationStrategy implements OperationStrategy {
     return netProceeds;
   }
 
+  /**
+   * Calculates the tax to be paid based on the taxable profit, which is the
+   * accumulated profit (including the current one) minus the accumulated losses.
+   *
+   * @param portfolio
+   * @param netProceeds
+   * @param operation
+   * @private
+   */
   private calculateTax(
     portfolio: Portfolio,
     netProceeds: number,
@@ -34,8 +54,7 @@ export class SellOperationStrategy implements OperationStrategy {
   ): Tax {
     const taxableProfit = portfolio.calculateTaxableProfit(netProceeds);
     portfolio.deductLosses(netProceeds);
-    const totalValue = operation.unitCost * operation.quantity;
-    const tax = TaxCalculator.calculateTax(taxableProfit, totalValue);
+    const tax = TaxCalculator.calculateTax(taxableProfit, operation.totalValue);
 
     return { tax: parseFloat(tax.toFixed(2)) };
   }

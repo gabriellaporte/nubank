@@ -10,6 +10,7 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "src/*"
@@ -17,11 +18,12 @@
     }
   },
   "include": [
-    "src",
-    "__tests__/**/*.spec.ts"
+    "src"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "**/__tests__/**",
+    "**/*.spec.ts"
   ]
 }

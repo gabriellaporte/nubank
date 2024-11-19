@@ -4,11 +4,13 @@ services:
     build:
       context: .
       dockerfile: ${DOCKERFILE:-Dockerfile.prod}
+    image: nubank-capital-gains
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
       - /app/node_modules
     environment:
       NODE_ENV: ${NODE_ENV:-production}
-    command: ${COMMAND:-"node dist/main.js"}
+    stdin_open: true
+    tty: true
+    command: bash

@@ -9,10 +9,6 @@ export class Operation {
     this.validate();
   }
 
-  static fromJSON(json: any): Operation {
-    return new Operation(json.operation, json['unit-cost'], json.quantity);
-  }
-
   private validate(): void {
     if (![BUY_TYPE, SELL_TYPE].includes(this.type)) {
       throw new Error(`Operation type must be "${BUY_TYPE}" or "${SELL_TYPE}"`);
@@ -27,7 +23,15 @@ export class Operation {
     }
   }
 
+  static fromJSON(json: any): Operation {
+    return new Operation(json.operation, json['unit-cost'], json.quantity);
+  }
+
   public calculateNetProceeds(averagePrice: number): number {
     return (this.unitCost - averagePrice) * this.quantity;
+  }
+
+  get totalValue(): number {
+    return this.unitCost * this.quantity;
   }
 }

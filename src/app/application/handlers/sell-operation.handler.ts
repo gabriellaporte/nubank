@@ -13,6 +13,7 @@ export class SellOperationHandler implements OperationHandler {
     const netProceeds = operation.calculateNetProceeds(
       portfolio.getAveragePrice()
     );
+    portfolio.updateTotalQuantity(-operation.quantity);
 
     if (netProceeds <= 0) {
       portfolio.accumulateLoss(Math.abs(netProceeds));

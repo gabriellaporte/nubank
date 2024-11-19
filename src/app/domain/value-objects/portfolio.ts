@@ -6,8 +6,12 @@ export class Portfolio {
   private totalQuantity: number = 0;
 
   updateAveragePrice(unitCost: number, quantity: number): void {
-    this.totalQuantity += quantity;
+    this.updateTotalQuantity(quantity);
     this.averagePrice.update(unitCost, quantity, this.totalQuantity);
+  }
+
+  updateTotalQuantity(quantity: number): void {
+    this.totalQuantity += quantity;
   }
 
   deductLosses(profit: number): number {

@@ -13,4 +13,4 @@ services:
       - /app/node_modules
     environment:
       NODE_ENV: ${NODE_ENV:-production}
-    command: ${COMMAND:-"node dist/index.js"}
+    command: ${COMMAND:-"node dist/main.js"}

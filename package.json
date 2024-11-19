@@ -2,9 +2,9 @@
   "name": "capital-gains-nubank",
   "version": "1.0.0",
   "description": "Code Challenge for Nubank",
-  "main": "dist/index.js",
+  "main": "dist/main.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts",
+    "dev": "ts-node-dev --respawn src/main.ts",
     "build": "tsc",
     "lint": "eslint .",
     "format": "prettier --write .",

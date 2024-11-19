@@ -64,8 +64,6 @@ na hora de arquitetar...
 
 # 💻 Tech Stack & Libs
 
-<hr>
-
 Aqui estão as tecnologias e bibliotecas utilizadas neste projeto:
 
 - **[Node.js](https://nodejs.org/en/)** - Node.js é um ambiente de execução JavaScript que permite executar código
@@ -78,8 +76,6 @@ Aqui estão as tecnologias e bibliotecas utilizadas neste projeto:
 <br />
 
 # 🚀 Como Instalar
-
-<hr>
 
 Primeiro, [baixe e configure](https://docs.docker.com/engine/install/) o Docker. Ele é necessário para rodar o projeto,
 uma vez que a build está conteinerizada.
@@ -113,9 +109,10 @@ npm run test
 
 # ⌨️ Utilizando o Sistema
 
-<hr>
-Tá na hora de usar o nosso sistema. Você rodou os comandos de _build_, configurou tudo certinho e acessou a CLI. E agora?
-Agora, você deve entrar os dados do seu investimento em formato JSON. Cada linha vai registrar um histórico de transação e ser independente das demais, mas você pode optar por inserir várias linhas de uma vez só que vai funcionar também.
+Tá na hora de usar o nosso sistema. Você rodou os comandos de _build_, configurou tudo certinho e acessou a CLI. E
+agora?
+Agora, você deve entrar os dados do seu investimento em formato JSON. Cada linha vai registrar um histórico de transação
+e ser independente das demais, mas você pode optar por inserir várias linhas de uma vez só que vai funcionar também.
 
 Exemplo:
 
@@ -135,8 +132,6 @@ sendo atendidas, okay?
 <br />
 
 # 📚 Alguns Outros Detalhes Técnicos...
-
-<hr>
 
 Legal! Que bom que você gostou do teste. Mas, se você quiser saber mais sobre o projeto, aqui estão alguns detalhes
 técnicos que podem te interessar:
@@ -160,8 +155,6 @@ técnicos que podem te interessar:
 
 # 👋 Considerações Finais
 
-<hr>
-
 E aí, o que achou do teste? Espero que tenha gostado. Foi feito com muito carinho e dedicação. Se tiver alguma dúvida,
 não hesite em me contatar. Se algo não saiu como o planejado (improvável), estou à disposição para corrigir.
 
@@ -170,8 +163,6 @@ Espero que tenha gostado, de verdade! E, quem sabe, nos encontramos em breve. Bo
 <br />
 
 # 💜 Agradecimentos
-
-<hr>
 
 Em primeiro lugar a Deus. SDG! Em segundo lugar, à minha melhor amiga e esposa: Ana. Também, à minha família que tão
 amorosamente me encorajou a seguir em frente. Minha carreira é feita por pessoas e para pessoas.

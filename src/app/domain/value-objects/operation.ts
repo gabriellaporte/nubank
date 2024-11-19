@@ -1,6 +1,8 @@
+import { BUY_TYPE, SELL_TYPE } from '../../shared/constants';
+
 export class Operation {
   constructor(
-    public readonly type: 'buy' | 'sell',
+    public readonly type: string,
     public readonly unitCost: number,
     public readonly quantity: number
   ) {}
@@ -10,7 +12,7 @@ export class Operation {
   }
 
   private validate(): void {
-    if (!['buy', 'sell'].includes(this.type)) {
+    if (![BUY_TYPE, SELL_TYPE].includes(this.type)) {
       throw new Error('Operation type must be "buy" or "sell"');
     }
 

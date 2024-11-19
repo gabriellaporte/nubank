@@ -1,4 +1,4 @@
-export { BuyOperationHandler } from './buy-operation.handler';
-export { OperationHandler } from '../../domain/handlers/operation.handler.interface';
-export { SellOperationHandler } from './sell-operation.handler';
-export { OperationHandlerFactory } from './operation.handler.factory';
+export { BuyOperationStrategy } from './buy-operation.strategy';
+export { OperationStrategy } from '../../domain/handlers/operation.strategy.interface';
+export { SellOperationStrategy } from './sell-operation.strategy';
+export { OperationStrategyFactory } from './operation.strategy.factory';

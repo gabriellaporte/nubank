@@ -1,6 +1,6 @@
 import { Operation } from '../../domain/value-objects/operation';
 import { CalculateTaxesUseCase } from '../../application/usecases/calculate-taxes-use.case';
-import { Tax } from '../../domain/handlers/operation.handler.interface';
+import { Tax } from '../../domain/handlers/operation.strategy.interface';
 
 export class CapitalGainsController {
   constructor(private readonly calculateTaxesUseCase: CalculateTaxesUseCase) {}

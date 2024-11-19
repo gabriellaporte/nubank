@@ -1,6 +1,6 @@
 import { Portfolio } from '../../domain/value-objects/portfolio';
-import { OperationHandlerFactory } from '../handlers';
-import { Tax } from '../../domain/handlers/operation.handler.interface';
+import { OperationStrategyFactory } from '../handlers';
+import { Tax } from '../../domain/handlers/operation.strategy.interface';
 import { Operation } from '../../domain/value-objects';
 
 export class CalculateTaxesUseCase {
@@ -8,8 +8,8 @@ export class CalculateTaxesUseCase {
     const portfolio = new Portfolio();
     return operationsBatch.map((op) => {
       const operation = Operation.fromJSON(op);
-      const handler = OperationHandlerFactory.create(operation);
-      return handler.handle(operation, portfolio);
+      const strategy = OperationStrategyFactory.create(operation);
+      return strategy.handle(operation, portfolio);
     });
   }
 }

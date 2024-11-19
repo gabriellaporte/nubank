@@ -1,18 +1,11 @@
 import { Operation, Portfolio } from '../../domain/value-objects/';
-import { OperationHandler } from './';
+import { OperationStrategy } from './';
 import { TaxCalculator } from '../../domain/domain-services/tax-calculator';
-import { Tax } from '../../domain/handlers/operation.handler.interface';
+import { Tax } from '../../domain/handlers/operation.strategy.interface';
 
-export class SellOperationHandler implements OperationHandler {
-  canHandle(operation: Operation): boolean {
-    return operation.type === 'sell';
-  }
-
+export class SellOperationStrategy implements OperationStrategy {
   handle(operation: Operation, portfolio: Portfolio): Tax {
-    const netProceeds = operation.calculateNetProceeds(
-      portfolio.getAveragePrice()
-    );
-    portfolio.updateTotalQuantity(-operation.quantity);
+    const netProceeds = this.processNetProceeds(operation, portfolio);
 
     if (netProceeds <= 0) {
       portfolio.accumulateLoss(Math.abs(netProceeds));
@@ -22,11 +15,23 @@ export class SellOperationHandler implements OperationHandler {
     return this.calculateTax(portfolio, netProceeds, operation);
   }
 
+  private processNetProceeds(
+    operation: Operation,
+    portfolio: Portfolio
+  ): number {
+    const netProceeds = operation.calculateNetProceeds(
+      portfolio.getAveragePrice()
+    );
+
+    portfolio.updateTotalQuantity(-operation.quantity);
+    return netProceeds;
+  }
+
   private calculateTax(
     portfolio: Portfolio,
     netProceeds: number,
     operation: Operation
-  ) {
+  ): Tax {
     const taxableProfit = portfolio.deductLosses(netProceeds);
     const totalValue = operation.unitCost * operation.quantity;
     const tax = TaxCalculator.calculateTax(taxableProfit, totalValue);

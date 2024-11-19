@@ -12,6 +12,10 @@ export class Portfolio {
 
   updateTotalQuantity(quantity: number): void {
     this.totalQuantity += quantity;
+
+    if (this.totalQuantity < 0) {
+      throw new Error("You can't have negative stocks");
+    }
   }
 
   deductLosses(profit: number): number {

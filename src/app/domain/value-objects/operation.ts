@@ -15,7 +15,7 @@ export class Operation {
 
   private validate(): void {
     if (![BUY_TYPE, SELL_TYPE].includes(this.type)) {
-      throw new Error('Operation type must be "buy" or "sell"');
+      throw new Error(`Operation type must be "${BUY_TYPE}" or "${SELL_TYPE}"`);
     }
 
     if (this.unitCost <= 0) {

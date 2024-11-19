@@ -13,7 +13,7 @@ describe('Operation', () => {
 
     it('should throw an error for invalid operation type', () => {
       expect(() => new Operation('invalid', 10, 100)).toThrow(
-        'Operation type must be "buy" or "sell"'
+        `Operation type must be "${BUY_TYPE}" or "${SELL_TYPE}"`
       );
     });
 
@@ -52,7 +52,7 @@ describe('Operation', () => {
       const json = { operation: 'invalid', 'unit-cost': -10, quantity: -100 };
 
       expect(() => Operation.fromJSON(json)).toThrow(
-        'Operation type must be "buy" or "sell"'
+        `Operation type must be "${BUY_TYPE}" or "${SELL_TYPE}"`
       );
     });
   });

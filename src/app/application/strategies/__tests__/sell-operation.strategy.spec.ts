@@ -2,7 +2,7 @@ import { SellOperationStrategy } from '@/app/application/strategies';
 import { Operation, Portfolio } from '@/app/domain/value-objects';
 import { TaxCalculator } from '@/app/domain/domain-services/tax-calculator';
 
-jest.mock('@/app/domain/domain-services/tax-calculator'); // Mocking TaxCalculator
+jest.mock('@/app/domain/domain-services/tax-calculator');
 
 describe('SellOperationStrategy', () => {
   let sut: SellOperationStrategy;

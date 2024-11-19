@@ -26,7 +26,7 @@ describe('OperationStrategyFactory', () => {
 
     it('should throw an error for unsupported operation types', () => {
       const unsupportedOperation = {
-        type: 'invalid', // Tipo inválido
+        type: 'invalid',
         unitCost: 10,
         quantity: 100,
       } as Operation;

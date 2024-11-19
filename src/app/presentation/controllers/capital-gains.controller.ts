@@ -1,5 +1,5 @@
 import { Operation } from '../../domain/value-objects/operation';
-import { CalculateTaxesUseCase } from '../../application/usecases/calculate-taxes-use.case';
+import { CalculateTaxesUseCase } from '../../application/usecases/calculate-taxes.use-case';
 import { Tax } from '@/app/domain/strategies/operation.strategy.interface';
 
 export class CapitalGainsController {

@@ -9,7 +9,7 @@ export class AveragePrice {
 
     const totalCost =
       this.value * (totalQuantity - quantity) + unitCost * quantity;
-    this.value = totalCost / totalQuantity;
+    this.value = parseFloat((totalCost / totalQuantity).toFixed(2));
   }
 
   getValue(): number {

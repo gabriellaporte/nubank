@@ -18,6 +18,7 @@ export class CalculateCommand implements Command {
 
     const data = InputParser.parse(input);
     const taxes = this.controller.calculate(data);
+    console.log('\n');
     taxes.forEach((batch) => console.log(JSON.stringify(batch)));
   }
 }

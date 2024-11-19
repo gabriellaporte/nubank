@@ -3,14 +3,14 @@ services:
     container_name: typescript-app
     build:
       context: .
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile.dev
     image: nubank-capital-gains
     ports:
       - "3000:3000"
     volumes:
       - /app/node_modules
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     stdin_open: true
     tty: true
-    command: bash
+    command: npm run dev

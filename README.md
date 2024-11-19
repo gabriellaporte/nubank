@@ -77,13 +77,19 @@ uma vez que a build está conteinerizada.
 > 👆 Não se esqueça de configurar o [Docker Compose](https://docs.docker.com/compose/) também!
 
 Depois, acessando o repositório do projeto, execute o comando abaixo para buildar o projeto. Pode levar um tempinho para
-concluir, ok?
+concluir, ok? Coisa de minutos.
 
 ```bash
-docker compose build --no-cache
+docker compose build
 ```
 
-> 🐳 Deixa com o Docker! Rodar esse comando já vai configurar o projeto para você em prod. :)
+> 🐳 Você pode usar o parâmetro `--no-cache` para forçar a build do zero, caso queira. Mas isso vai levar mais tempo.
+
+> 🐢 Se estiver lento, você pode usar a build de desenvolvimento com `docker compose -f docker-compose.dev.yml build`.
+> Porém ele não builda o Typescript, mas usa o `ts-node` para executar o código.
+
+> ⌛ Nos testes que fiz, a build zerada de prod levou cerca de [50 segundos](https://prnt.sc/bYnDNOIMwffH). A de dev,
+> cerca de [30 segundos](https://prnt.sc/u-rEyGXi0w39). Mas isso pode variar.
 
 Por fim, você pode rodar o projeto com o comando:
 
@@ -91,20 +97,20 @@ Por fim, você pode rodar o projeto com o comando:
 docker run -it nubank-capital-gains npm run calculate
 ```
 
-> ⚒️ Alternativamente, você pode buildar o projeto à sua maneira e rodar o comando `npm run calculate` que
-> inicializa a CLI.
+> 🎲 Para o caso de build de desenvolvimento, você pode rodar o comando
+`docker run -it nubank-capital-gains npm run calculate:dev` pois ele usa o ts-node para executar o código em TypeScript.
+
+> ❌ Se você não quiser usar Docker, você precisará instalar o [Node.js](https://nodejs.org/) e
+> o [Typescript](https://www.typescriptlang.org/download/) na sua máquina. Ah, e algum
+> gerenciador de pacotes como [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+> ou [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/). Depois, basta instalar as libs com `npm install` buildar
+> o projeto com `npm run build` e depois usar normalmente o comando `npm run calculate` como mostrei acima.
 
 Ah! E antes que me esqueça, se quiser rodar os testes e ver a cobertura, basta rodar o comando:
 
 ```bash
 npm run test
 ```
-
-> Se você não quiser usar Docker, você precisará instalar o [Node.js](https://nodejs.org/) e
-> o [Typescript](https://www.typescriptlang.org/download/) na sua máquina. Ah, e algum
-> gerenciador de pacotes como [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-> ou [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/). Depois, basta instalar as libs com `npm install` buildar
-> o projeto com `npm run build` e depois usar normalmente o comando como mostrei acima.
 
 <br />
 
@@ -122,7 +128,8 @@ Exemplo:
 [{"operation":"buy", "unit-cost":20.00, "quantity": 10000},{"operation":"sell", "unit-cost":10.00, "quantity": 5000}]
 ```
 
-> 📝 **Observação**: atenção na hora de copiar e colar o JSON. Se houver algum erro de formatação, o sistema não vai
+> 📝 **Observação**: muita atenção na hora de copiar e colar o JSON. Se houver algum erro de formatação, o sistema não
+> vai
 > aceitar o seu input, ok? Isso inclui quebras de linhas não esperadas. O sistema interpreta uma quebra de linha como um
 > novo registro.
 
@@ -151,6 +158,10 @@ técnicos que podem te interessar:
 - **Validação**: apesar de segurar as pontas e verificar se os dados inseridos são válidos, como informado no
   levantamento de requisitos do sistema, não há muitas validações extras, portanto espera-se que o usuário insira os
   dados corretamente, como combinado.
+- **Docker e Ambiente**: tudo está conteinerizado. Para configurar tudo, é só seguir os passos que mencionei lá em cima.
+  Porém, gostaria de falar que tentei optimizar ao máximo o processo de build e execução do projeto. Usei multi-stage
+  builds e outras técnicas que com certeza vão influenciar na performance do sistema. Apesar disso... Buildar do zero
+  leva um tempinho, né?
 
 <br />
 

@@ -11,16 +11,18 @@
     "check-format": "prettier --check .",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "calculate": "node dist/main.js calculate",
+    "calculate:dev": "npx ts-node src/main.ts calculate"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.3",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "ts-node-dev": "^2.0.0",
     "@types/jest": "^29.5.14",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.0.0",

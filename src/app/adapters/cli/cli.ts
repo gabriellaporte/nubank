@@ -2,7 +2,7 @@ import yargs, { Argv } from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import * as readline from 'node:readline';
 import { CapitalGainsController } from '../../presentation/controllers/capital-gains.controller';
-import { CalculateTaxesForOperationsUseCase } from '../../application/usecases/calculate-taxes-for-operations.use-case';
+import { CalculateTaxesUseCase } from '../../application/usecases/calculate-taxes-use.case';
 
 export class CLI {
   async configure(): Promise<void> {
@@ -24,7 +24,7 @@ export class CLI {
   }
 
   private async run() {
-    const usecase = new CalculateTaxesForOperationsUseCase();
+    const usecase = new CalculateTaxesUseCase();
     const controller = new CapitalGainsController(usecase);
     const input = await this.readStdin();
     const data = this.parseInput(input);

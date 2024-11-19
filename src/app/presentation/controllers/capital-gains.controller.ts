@@ -1,16 +1,13 @@
 import { Operation } from '../../domain/value-objects/operation';
-import { OperationBatch } from '../../domain/value-objects/operation-batch';
-import { CalculateTaxesForOperationsUseCase } from '../../application/usecases/calculate-taxes-for-operations.use-case';
+import { CalculateTaxesUseCase } from '../../application/usecases/calculate-taxes-use.case';
 import { Tax } from '../../domain/handlers/operation.handler.interface';
 
 export class CapitalGainsController {
-  constructor(
-    private readonly calculateTaxesUseCase: CalculateTaxesForOperationsUseCase
-  ) {}
+  constructor(private readonly calculateTaxesUseCase: CalculateTaxesUseCase) {}
 
   calculate(data: Operation[][]): Tax[][] {
-    return data.map((batch) =>
-      this.calculateTaxesUseCase.execute(new OperationBatch(batch))
+    return data.map((operationsBatch) =>
+      this.calculateTaxesUseCase.execute(operationsBatch)
     );
   }
 }

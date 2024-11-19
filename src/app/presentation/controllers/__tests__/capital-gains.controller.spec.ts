@@ -1,17 +1,21 @@
 import { CapitalGainsController } from '@/app/presentation/controllers/capital-gains.controller';
 import { CalculateTaxesUseCase } from '@/app/application/usecases/calculate-taxes.use-case';
-import { Operation } from '@/app/domain/value-objects';
+import { Operation, Portfolio } from '@/app/domain/value-objects';
 import { Tax } from '@/app/domain/strategies/operation.strategy.interface';
 
 jest.mock('@/app/application/usecases/calculate-taxes.use-case');
+jest.mock('@/app/domain/value-objects/portfolio');
 
 describe('CapitalGainsController', () => {
   let controller: CapitalGainsController;
   let mockCalculateTaxesUseCase: jest.Mocked<CalculateTaxesUseCase>;
+  let mockPortfolio: jest.Mocked<Portfolio>;
 
   beforeEach(() => {
-    mockCalculateTaxesUseCase =
-      new CalculateTaxesUseCase() as jest.Mocked<CalculateTaxesUseCase>;
+    mockPortfolio = new Portfolio() as jest.Mocked<Portfolio>;
+    mockCalculateTaxesUseCase = new CalculateTaxesUseCase(
+      mockPortfolio
+    ) as jest.Mocked<CalculateTaxesUseCase>;
     jest.clearAllMocks();
     controller = new CapitalGainsController(mockCalculateTaxesUseCase);
   });

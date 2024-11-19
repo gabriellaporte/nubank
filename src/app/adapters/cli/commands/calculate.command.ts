@@ -3,12 +3,14 @@ import { CalculateTaxesUseCase } from '../../../application/usecases/calculate-t
 import { InputReader } from '../core/input-reader';
 import { InputParser } from '../core/input-parser';
 import { Command } from '../commands/command.interface';
+import { Portfolio } from '@/app/domain/value-objects';
 
 export class CalculateCommand implements Command {
   private readonly controller: CapitalGainsController;
 
   constructor() {
-    const useCase = new CalculateTaxesUseCase();
+    const portfolio = new Portfolio();
+    const useCase = new CalculateTaxesUseCase(portfolio);
     this.controller = new CapitalGainsController(useCase);
   }
 

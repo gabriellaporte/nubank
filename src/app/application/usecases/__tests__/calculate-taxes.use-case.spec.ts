@@ -12,10 +12,12 @@ jest.mock('@/app/domain/value-objects/operation');
 
 describe('CalculateTaxesUseCase', () => {
   let sut: CalculateTaxesUseCase;
+  let mockPortfolio: jest.Mocked<Portfolio>;
 
   beforeEach(() => {
     jest.clearAllMocks();
-    sut = new CalculateTaxesUseCase();
+    mockPortfolio = new Portfolio() as jest.Mocked<Portfolio>;
+    sut = new CalculateTaxesUseCase(mockPortfolio);
   });
 
   describe('execute', () => {

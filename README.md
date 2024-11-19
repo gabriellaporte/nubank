@@ -184,6 +184,7 @@ Espero que tenha gostado, de verdade! E, quem sabe, nos encontramos em breve. Bo
 Em primeiro lugar a Deus. SDG! Em segundo lugar, à minha melhor amiga e esposa: Ana. Também, à minha família que tão
 amorosamente me encorajou a seguir em frente. Minha carreira é feita por pessoas e para pessoas.
 
-E, claro, à Nubank: ao Eduardo Reis, que está conduzindo o processo tão gentilmente, e à equipe que está lendo isso.
+E, claro, à pessoa da Nubank (que não posso informar por anonimato, como vocês pedem) que está conduzindo o processo tão
+gentilmente, e à equipe que está lendo isso.
 Obrigado mesmo, espero que estejam "encantados" assim como a Nubank tem como pilar o "encantamento"! Fiz com muito zelo!
 🙏

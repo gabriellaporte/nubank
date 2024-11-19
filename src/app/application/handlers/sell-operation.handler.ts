@@ -1,5 +1,4 @@
-import { Operation } from '../../domain/value-objects/operation';
-import { Portfolio } from '../../domain/value-objects/portfolio';
+import { Operation, Portfolio } from '../../domain/value-objects/';
 import { OperationHandler } from './';
 import { TaxCalculator } from '../../domain/domain-services/tax-calculator';
 import { Tax } from '../../domain/handlers/operation.handler.interface';

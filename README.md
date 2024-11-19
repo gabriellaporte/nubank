@@ -44,20 +44,14 @@ Além disso, deixei o mais performático possível. Afinal, queremos que o progr
 Como arquitetura (ou _design_, rsrs) de Software, adotei o padrão
 arquitetural [_Clean Architecture_](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 e [_Domain-Driven Design_](https://martinfowler.com/bliki/DomainDrivenDesign.html). Por serem conhecidos popularmente,
-não
-entrarei em detalhes sobre eles, mas a ideia é que o
-código seja o mais desacoplado possível, facilitando a manutenção e a escalabilidade do _software_. Por exemplo, o
-sistema
-hoje
-roda em _CLI_, mas
-facilmente posso implementar uma _API Rest_ ou algum outro _driver actor_, como propõe
-a [_Hexagonal Architecture_](https://alistair.cockburn.us/hexagonal-architecture/).
+não entrarei em detalhes sobre eles, mas a ideia é que o código seja o mais desacoplado possível, facilitando a
+manutenção e a escalabilidade do _software_. Por exemplo, o sistema hoje roda em _CLI_, mas facilmente posso implementar
+uma _API Rest_ ou algum outro _driver actor_, como propõe a [_Hexagonal
+Architecture_](https://alistair.cockburn.us/hexagonal-architecture/).
 
 Os testes foram escritos com [Jest](https://jestjs.io/), uma das ferramentas de testes mais populares do mercado. Eles
 cobrem 100% da aplicação, incluindo a _CLI_ que eu mesmo criei. Sabendo da importância deles, também não poupei em
-aplicar
-alguns padrões como o padrão _Triple A_, _SUTs_, _MUts_, _mocks_, _spies_,
-_stubs_, [_Test
+aplicar alguns padrões como o padrão _Triple A_, _SUTs_, _MUts_, _mocks_, _spies_, _stubs_, [_Test
 Pyramid_](https://global-uploads.webflow.com/619e15d781b21202de206fb5/628b0dca3e6eda9219d40a6a_The-Testing-Pyramid-Simplified-for-One-and-All-1280X720%20(1).jpg)
 na hora de arquitetar...
 
@@ -105,6 +99,12 @@ Ah! E antes que me esqueça, se quiser rodar os testes e ver a cobertura, basta 
 ```bash
 npm run test
 ```
+
+> Se você não quiser usar Docker, você precisará instalar o [Node.js](https://nodejs.org/) e
+> o [Typescript](https://www.typescriptlang.org/download/) na sua máquina. Ah, e algum
+> gerenciador de pacotes como [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+> ou [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/). Depois, basta instalar as libs com `npm install` buildar
+> o projeto com `npm run build` e depois usar normalmente o comando como mostrei acima.
 
 <br />
 

@@ -27,8 +27,6 @@
 
 # ☄ Sobre o Projeto
 
-<hr>
-
 O projeto consiste em um programa de linha de comando (CLI) que calcula o imposto a ser pago sobre operações no mercado
 financeiro de ações. Para isto, existem cálculos que levam em conta os lucros, prejuízos e Preço Médio Ponderado (PMP)
 da movimentação que foi entrada pelo usuário.
@@ -175,7 +173,7 @@ Espero que tenha gostado, de verdade! E, quem sabe, nos encontramos em breve. Bo
 
 <hr>
 
-Em primeiro lugar, a Deus. SDG! Em segundo lugar, à minha melhor amiga e esposa: Ana. Também, à minha família que tão
+Em primeiro lugar a Deus. SDG! Em segundo lugar, à minha melhor amiga e esposa: Ana. Também, à minha família que tão
 gentilmente me encorajou a seguir em frente nesse processo.
 
 E, claro, à Nubank: ao Eduardo Reis, que está conduzindo o processo tão gentilmente, e à equipe que está lendo isso.

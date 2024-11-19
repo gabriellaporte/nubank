@@ -162,6 +162,7 @@ técnicos que podem te interessar:
   Porém, gostaria de falar que tentei optimizar ao máximo o processo de build e execução do projeto. Usei multi-stage
   builds e outras técnicas que com certeza vão influenciar na performance do sistema. Apesar disso... Buildar do zero
   leva um tempinho, né?
+- **Desenvolvimento**: Usei ferramentas que garantiam a qualidade do código como ESLint e Prettier.
 
 <br />
 

@@ -29,7 +29,10 @@ export class CLI {
     const input = await this.readStdin();
     const data = this.parseInput(input);
 
-    await controller.calculate(data);
+    const taxes = controller.calculate(data);
+    taxes.forEach((batch) => {
+      console.log(JSON.stringify(batch));
+    });
   }
 
   /**

@@ -1,5 +1,5 @@
-import { Operation } from '../../domain/value-objects/operation';
-import { Portfolio } from '../../domain/value-objects/portfolio';
+import { Operation } from '../value-objects/operation';
+import { Portfolio } from '../value-objects/portfolio';
 
 export interface OperationHandler {
   canHandle(operation: Operation): boolean;

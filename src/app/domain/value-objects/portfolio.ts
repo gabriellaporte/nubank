@@ -4,6 +4,11 @@ export class Portfolio {
   private losses: number = 0;
 
   updateAveragePrice(unitCost: number, quantity: number): void {
+    if (this.totalQuantity === 0) {
+      this.averagePrice = unitCost;
+      return;
+    }
+
     const totalCost =
       this.averagePrice * this.totalQuantity + unitCost * quantity;
     this.totalQuantity += quantity;

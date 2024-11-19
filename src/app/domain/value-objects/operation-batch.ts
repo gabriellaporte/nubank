@@ -9,7 +9,5 @@ export class OperationBatch {
     this.operations = operations.map((rawOperation) =>
       Operation.fromJSON(rawOperation)
     );
-
-    console.log(this.operations);
   }
 }
